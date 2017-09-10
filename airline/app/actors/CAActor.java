@@ -5,9 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.*;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-
+import java.util.Timer;
+import java.util.TimerTask;
 import akka.actor.AbstractActor;
 import akka.actor.Props;
 import akka.event.Logging;
@@ -15,34 +16,124 @@ import akka.event.LoggingAdapter;
 import play.libs.Json;
 
 public class CAActor extends AbstractActor{
+	
+	private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
+	private Timer timer;
+	private Boolean fail = false;
+	private Boolean noResponse = false;
+	private AbstractActor.Receive failState;
+	private AbstractActor.Receive noResponseState;
+	private AbstractActor.Receive resetState;
 	public int count =0;
-	 public static Props getProps() {
-	        return Props.create(CAActor.class);
-	    }
-	@Override
-	public Receive createReceive() {
-		      return receiveBuilder()
+	public CAActor(){
+		failState = receiveBuilder()
+				.match(DebugMessage.class, message -> {
+		    		String action = message.getMessage().get("action").asText();
+		    		String reply = "{ status: success} ";
+		    		if(action.contains("fail")){
+		    			fail = true;
+		    			noResponse = false;
+		    			getContext().become(failState);
+		    		}
+		    		else if(action.contains("noResponse")){
+		    			fail = false;
+		    			noResponse = true;
+		    			getContext().become(noResponseState);
+		    		}
+		    		else if (action.contains("reset")){
+		    			fail = false;
+		    			noResponse = false;
+		    			getContext().become(resetState);
+		    		}
+		    		getSender().tell(reply, self());
+		    		
+		    	})
+		          .matchAny(s -> {
+		        	  getSender().tell("{Status : Error}", self());
+		          })
+		          .build();
+		noResponseState = receiveBuilder()
+				.match(DebugMessage.class, message -> {
+		    		String action = message.getMessage().get("action").asText();
+		    		String reply = "{ status: success} ";
+		    		if(action.contains("fail")){
+		    			fail = true;
+		    			noResponse = false;
+		    			getContext().become(failState);
+		    		}
+		    		else if(action.contains("noResponse")){
+		    			fail = false;
+		    			noResponse = true;
+		    			getContext().become(noResponseState);
+		    		}
+		    		else if (action.contains("reset")){
+		    			fail = false;
+		    			noResponse = false;
+		    			getContext().become(resetState);
+		    		}
+		    		getSender().tell(reply, self());
+		    		
+		    	})
+		          .build();
+		resetState = receiveBuilder()
+		    	.match(DebugMessage.class, message -> {
+		    		String action = message.getMessage().get("action").asText();
+		    		String reply = "{ status: success} ";
+		    		if(action.contains("fail")){
+		    			fail = true;
+		    			noResponse = false;
+		    			getContext().become(failState);
+		    		}
+		    		else if(action.contains("noResponse")){
+		    			fail = false;
+		    			noResponse = true;
+		    			getContext().become(noResponseState);
+		    		}
+		    		else if (action.contains("reset")){
+		    			fail = false;
+		    			noResponse = false;
+		    			getContext().become(resetState);
+		    		}
+		    		getSender().tell(reply, self());
+		    		
+		    	})
 		        .match(FlightMessage.class, message -> {
 		        	String action = message.getMessage().get("action").asText();
-		        	int res = -999;
+					String operator = message.getMessage().get("operator").asText();
+					String flight = message.getMessage().get("flight").asText();
+		        	int total = 0;
+		        	int booked = 0;
+		        	int available = 0;
 		        	String sqlStatmt = "" ;
 		        	PreparedStatement pstmt = null;
 		        	if(action.equals("availableSeats")){
-		        		sqlStatmt = "Select Available from Flights where Name = ?";
+		        		sqlStatmt = "Select count(*) as booked from Booking where Flight = ?";
 		        	}
 		        	String reply;
 		        	try{
+		        		if(!flight.contains(operator))
+							throw new Exception("Invalid input");
 		        		Connection conn = connect();
 		        	    pstmt  = conn.prepareStatement(sqlStatmt);
 	        			pstmt.setString(1,message.getMessage().get("flight").asText());
 		        		ResultSet rs  = pstmt.executeQuery();
 	        			while (rs.next()){
-	        				res = rs.getInt("Available");
+	        				booked = rs.getInt("booked");
+	        				System.out.println("Booked C:" +booked);
 	        			}
-	        			if(res==-999){
-	        				throw new Exception("No results");
+	        			//Connection conn1 = connect();
+	        			sqlStatmt = "Select Total from Flights where Name = ? AND Operator = ?";
+	        			pstmt  = conn.prepareStatement(sqlStatmt);
+	        			pstmt.setString(1,message.getMessage().get("flight").asText());
+	        			pstmt.setString(2,operator);
+	        			ResultSet rs1  = pstmt.executeQuery();
+		        		while (rs1.next()){
+	        				total = rs1.getInt("Total");
+	        				System.out.println("total C:" +total);
 	        			}
-	        			reply = "Seats available: " + res;
+		        		available = total - booked;
+	        			System.out.println("Avaialble C:" +available);
+	        			reply = "{Status: Success},{Seats available: " + available +"}";
 		        	}
 		        	catch(Exception e){
 		                System.out.println(e.getMessage());
@@ -54,6 +145,8 @@ public class CAActor extends AbstractActor{
 		            sender().tell(reply, self());
 		        })
 		        .match(TwoStageCommit.class, message -> {
+		        	
+		        	//Thread.sleep(40000);
 		        	String action = message.getMessage().get("action").asText();
 		        	System.out.println("in CA" + sender());
 		        	int res = -999;
@@ -62,24 +155,101 @@ public class CAActor extends AbstractActor{
 		        	System.out.println("in CACA");
 		        	String reply = "";
 		        	if(action.equals("Hold")){
+		        		timer = new Timer();
 		        		System.out.println("in CACA Hold");
-		        		reply = holdRequest(message.getMessage().get("flight").asText());
+		        		reply = holdRequest(message.getMessage().get("flight").asText(),
+		        				message.getMessage().get("bookingId").asText(),
+		        				message.getMessage().get("trip").asText());
+		        		
 		        	}
 		        	else if(action.equals("Confirm")){
 		        		System.out.println("in CACA confirm");
-		        		reply = commitRequest();
+		        		timer.cancel();
+		        		//reply = holdRequest(message.getMessage().get("flight").asText());
+		        		reply = commitRequest(message.getMessage().get("bookingId").asText());
 		        	}
 		            
 		            sender().tell(reply, self());
 		        })
 		        .build();
-		  }
-	private String commitRequest() {
-		
-		return "CCC";
 	}
-	private String holdRequest(String flight) {
+	public static Props getProps() {
+	        return Props.create(CAActor.class);
+	    }
+	@Override
+	public Receive createReceive() {
+		if(fail) return failState;
+		if(noResponse) return noResponseState;
+		else return resetState;
+		  }
+	private String commitRequest(String bookingId) {
+		
 		String sqlStatmt = "" ;
+		System.out.println("In C commit");
+		PreparedStatement pstmt = null;
+		String reply = "";
+		int res = -999;
+		sqlStatmt = "UPDATE Booking SET Hold = 'False' "
+                + "WHERE Id = '"+bookingId+"'";
+		try{
+				        		Connection conn = connect();
+				        	    pstmt  = conn.prepareStatement(sqlStatmt);
+				        	    //pstmt.setBoolean(1, true);
+				        	    pstmt.executeUpdate();
+			        			reply = "Booking Confirmed: "+bookingId;
+			}
+			catch(Exception e){
+				System.out.println(e.getMessage());
+				ObjectNode errorObject = Json.newObject();
+				errorObject.put("Error", e.getMessage());
+				reply = "Error in  Commit C: " + e.getMessage();
+			}
+
+		return reply;
+	}
+	private String cancelBooking(String bookingId, String flight){
+		String sqlStatmt = "" ;
+		System.out.println("In C cancel Booking");
+		PreparedStatement pstmt = null;
+		String reply = "";
+		int res = -999;
+		sqlStatmt = "DELETE from Booking "
+                + "WHERE Hold = 'true' AND Flight = '"+flight+"'";
+		try{
+				        		Connection conn = connect();
+				        	    pstmt  = conn.prepareStatement(sqlStatmt);
+				        	    //pstmt.setBoolean(1, true);
+				        	    pstmt.executeUpdate();
+				        	    sqlStatmt = "Select Available from Flights where Name = '"+flight+"'";
+				        	    pstmt  = conn.prepareStatement(sqlStatmt);
+				        		ResultSet rs  = pstmt.executeQuery();
+			        			while (rs.next()){
+			        				res = rs.getInt("Available");
+			        			}
+			        			if(res==-999){
+			        				throw new Exception("Couldn't query available");
+			        			}
+			        			sqlStatmt = "UPDATE Flights SET Available = ? "
+				                        + "WHERE Name = '"+flight+"'";
+				        		pstmt  = conn.prepareStatement(sqlStatmt);
+				        	    pstmt.setInt(1, res+1);
+				        	    pstmt.executeUpdate();
+			        			reply = "Booking Deleted: "+bookingId;
+			}
+			catch(Exception e){
+				System.out.println(e.getMessage());
+				ObjectNode errorObject = Json.newObject();
+				errorObject.put("Error", e.getMessage());
+				reply = "Error in  Deleting C: " + e.getMessage();
+			}
+		System.out.println(reply);
+		return reply;		
+	}
+	private String holdRequest(String flight,String bookingId,String trip) {
+		String fro ="",des="";
+		//int ran = (int)(Math.random()*100);
+		String sqlStatmt = "" ;
+		System.out.println("In C create");
 		PreparedStatement pstmt = null;
 		String reply = "";
 		int res = -999;
@@ -91,13 +261,34 @@ public class CAActor extends AbstractActor{
 			        			while (rs.next()){
 			        				res = rs.getInt("Available");
 			        			}
-			        			if(res==-999){
-			        				throw new Exception("No results");
+			        			if(res==-999||res==0){
+			        				throw new Exception("No seats");
 			        			}
-			        			sqlStatmt = "INSERT INTO Booking(Id,Flight,Fro,Dest,Trip) VALUES('AA001','AA001','X','X','X')";
+			        			if(flight.contains("1")){
+			        				fro = "X";
+			        				des = "Y";
+			        			}
+			        			else if(flight.contains("2")){
+			        				fro = "Z";
+			        				des = "W";
+			        			}
+			        			sqlStatmt = "INSERT INTO Booking(Id,Flight,Fro,Dest,Trip,Hold) VALUES(?,?,?,?,?,?)";
 			        			pstmt  = conn.prepareStatement(sqlStatmt);
-				        		ResultSet rs1  = pstmt.executeQuery();
-			        			reply = "Seats available: " + res;
+			        			pstmt.setString(1, bookingId);
+			        			pstmt.setString(2, flight);
+			        			pstmt.setString(3, fro);
+			        			pstmt.setString(4, des);
+			        			pstmt.setString(5, trip);
+			        			pstmt.setString(6, "true");
+				        		pstmt.executeUpdate();
+				        		sqlStatmt = "UPDATE Flights SET Available = ? "
+				                        + "WHERE Name = '"+flight+"'";
+				        		pstmt  = conn.prepareStatement(sqlStatmt);
+				        	    pstmt.setInt(1, res-1);
+				        	    pstmt.executeUpdate();
+				        	    startTimer(bookingId,
+			        					flight);
+			        			reply = "Booking Id: "+bookingId;
 			}
 			catch(Exception e){
 				System.out.println(e.getMessage());
@@ -123,6 +314,18 @@ public class CAActor extends AbstractActor{
         }
 		return conn; 
     }
-    
+
+	private void startTimer(String bookingId,String flight) {
+        timer.schedule(new TimerTask() {
+            int n=0;
+            @Override
+            public void run(){
+                if(++n == 15){
+                	cancelBooking(bookingId,flight);
+                    sender().tell("Hold on the booking has timed out",self());
+                }
+            }
+        },10000,1000);
+    }
 
 }

@@ -72,6 +72,7 @@ public class HomeController extends Controller {
     	ObjectNode message = Json.newObject();
     	message.put("action","availableSeats");
     	message.put("flight", flight);
+    	message.put("operator",operator);
     	ActorRef op = null;
     	if(operator.equals("AA"))
     		op = AActor;
@@ -100,11 +101,58 @@ public class HomeController extends Controller {
     	message.put("action","Hold");
     	//message.put("flight", "AA001");
     	op = BookActor;
-    	return FutureConverters.toJava(ask(op, new TwoStageCommit(message), 10000))
+    	try{
+    		CompletionStage<Result> res = FutureConverters.toJava(ask(op, new TwoStageCommit(message), 10000))
+                    .thenApply(response -> resp((String) response));
+    		return res;
+    	}
+    	catch(Exception e){
+    		return (CompletionStage<Result>) ok("Timeout");
+    	}
+    	
+    }
+    public CompletionStage<Result> postFail(String airline){
+    	ObjectNode message = Json.newObject();
+    	message.put("action","fail");
+    	ActorRef op = null;
+    	if(airline.equals("AA"))
+    		op = AActor;
+    	else if(airline.equals("BA"))
+    		op = BActor;
+    	else if(airline.equals("CA"))
+    		op = CActor;
+    	return FutureConverters.toJava(ask(op, new DebugMessage(message), 10000))
                 .thenApply(response -> resp((String) response));
     	
     }
-    
+    public CompletionStage<Result> postNoResponse(String airline){
+    	ObjectNode message = Json.newObject();
+    	message.put("action","noResponse");
+    	ActorRef op = null;
+    	if(airline.equals("AA"))
+    		op = AActor;
+    	else if(airline.equals("BA"))
+    		op = BActor;
+    	else if(airline.equals("CA"))
+    		op = CActor;
+    	return FutureConverters.toJava(ask(op, new DebugMessage(message), 10000))
+                .thenApply(response -> resp((String) response));
+    	
+    }
+    public CompletionStage<Result> postReset(String airline){
+    	ObjectNode message = Json.newObject();
+    	message.put("action","reset");
+    	ActorRef op = null;
+    	if(airline.equals("AA"))
+    		op = AActor;
+    	else if(airline.equals("BA"))
+    		op = BActor;
+    	else if(airline.equals("CA"))
+    		op = CActor;
+    	return FutureConverters.toJava(ask(op, new DebugMessage(message), 10000))
+                .thenApply(response -> resp((String) response));
+    	
+    }
     public CompletionStage<Result> getTripDetails(String TripId){
     	ActorRef op = null;
     	ObjectNode message = Json.newObject();
@@ -112,8 +160,8 @@ public class HomeController extends Controller {
     	message.put("TripId",TripId);
     	op = BookActor;
     	return FutureConverters.toJava(ask(op, new BookingMessage(message), 10000))
-                .thenApply(response -> resp((String) response));
-    	
+    			.thenApply(response -> resp((String) response));
+               
     }
     
     static Result resp(String resp){

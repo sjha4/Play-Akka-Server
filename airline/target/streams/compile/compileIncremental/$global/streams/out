@@ -1,4 +1,6 @@
-[0m[[0mdebug[0m] [0m[naha] Invalidating C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\target\scala-2.12\classes\actors\BookingActor.class: stamp changed from lastModified(1505024944010) to lastModified(1505025017361)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\target\scala-2.12\classes\actors\CAActor.class: stamp changed from lastModified(1505054022791) to lastModified(1505054143479)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\target\scala-2.12\classes\actors\BAActor.class: stamp changed from lastModified(1505054022725) to lastModified(1505054143328)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\target\scala-2.12\classes\actors\BookingActor.class: stamp changed from lastModified(1505054020679) to lastModified(1505054143424)[0m
 [0m[[0mdebug[0m] [0m[naha] [0m
 [0m[[0mdebug[0m] [0m[naha] Initial source changes: [0m
 [0m[[0mdebug[0m] [0m[naha] 	removed:Set()[0m
@@ -6,19 +8,21 @@
 [0m[[0mdebug[0m] [0m[naha] 	modified: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] Invalidated products: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] External API changes: API Changes: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set(C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\target\scala-2.12\classes\actors\BookingActor.class)[0m
+[0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set(C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\target\scala-2.12\classes\actors\CAActor.class, C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\target\scala-2.12\classes\actors\BAActor.class, C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\target\scala-2.12\classes\actors\BookingActor.class)[0m
 [0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] [0m
 [0m[[0mdebug[0m] [0m[naha] Sources indirectly invalidated by:[0m
 [0m[[0mdebug[0m] [0m[naha] 	product: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] 	binary dep: Set(C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\controllers\HomeController.java)[0m
+[0m[[0mdebug[0m] [0m[naha] 	binary dep: Set(C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\controllers\HomeController.java, C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\actors\CAActor.java, C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\actors\BAActor.java)[0m
 [0m[[0mdebug[0m] [0m[naha] 	external source: Set()[0m
-[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\controllers\HomeController.java)[0m
-[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\controllers\HomeController.java)[0m
-[0m[[0minfo[0m] [0mCompiling 1 Java source to C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\target\scala-2.12\classes...[0m
-[0m[[0mdebug[0m] [0mJava compilation took 1.30009984 s[0m
-[0m[[0mdebug[0m] [0mJava analysis took 0.102510934 s[0m
-[0m[[0mdebug[0m] [0mJava compile + analysis took 1.412544853 s[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\actors\BAActor.java, C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\actors\CAActor.java, C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\controllers\HomeController.java)[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\actors\BAActor.java, C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\actors\CAActor.java, C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\controllers\HomeController.java)[0m
+[0m[[0minfo[0m] [0mCompiling 3 Java sources to C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\target\scala-2.12\classes...[0m
+[0m[[0minfo[0m] [0mNote: C:\Users\samir\Desktop\3rd sem\SOC\P2\airline\app\controllers\HomeController.java uses unchecked or unsafe operations.[0m
+[0m[[0minfo[0m] [0mNote: Recompile with -Xlint:unchecked for details.[0m
+[0m[[0mdebug[0m] [0mJava compilation took 1.438327894 s[0m
+[0m[[0mdebug[0m] [0mJava analysis took 0.12838144 s[0m
+[0m[[0mdebug[0m] [0mJava compile + analysis took 1.57458816 s[0m
 [0m[[0mdebug[0m] [0m[naha] New invalidations:[0m
 [0m[[0mdebug[0m] [0m[naha] 	Set()[0m
 [0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set()[0m

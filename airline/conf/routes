@@ -11,6 +11,12 @@ GET /trips/:tripID	controllers.HomeController.getTripDetails(tripID)
 
 POST /trip/:from/:to controllers.HomeController.postTrips(from : String, to : String)
 
+GET /actor/:airline/confirm_fail 	controllers.HomeController.postFail(airline : String)
+
+GET /actor/:airline/confirm_no_response	controllers.HomeController.postNoResponse(airline : String)
+
+GET /actor/:airline/reset	controllers.HomeController.postReset(airline : String)
+
  GET      /local-hello/:name                controllers.HomeController.sayHello( name : String )
  
  GET /operators		controllers.HomeController.getOperators()

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/samir/Desktop/3rd sem/SOC/P2/airline/conf/routes
-// @DATE:Sat Sep 09 22:23:03 EDT 2017
+// @DATE:Sun Sep 10 08:45:51 EDT 2017
 
 package router
 
@@ -17,7 +17,7 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
   HomeController_0: controllers.HomeController,
-  // @LINE:23
+  // @LINE:29
   Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -26,7 +26,7 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
     HomeController_0: controllers.HomeController,
-    // @LINE:23
+    // @LINE:29
     Assets_1: controllers.Assets
   ) = this(errorHandler, HomeController_0, Assets_1, "/")
 
@@ -44,6 +44,9 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """trips""", """controllers.HomeController.getTrips()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """trips/""" + "$" + """tripID<[^/]+>""", """controllers.HomeController.getTripDetails(tripID:String)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """trip/""" + "$" + """from<[^/]+>/""" + "$" + """to<[^/]+>""", """controllers.HomeController.postTrips(from:String, to:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actor/""" + "$" + """airline<[^/]+>/confirm_fail""", """controllers.HomeController.postFail(airline:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actor/""" + "$" + """airline<[^/]+>/confirm_no_response""", """controllers.HomeController.postNoResponse(airline:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actor/""" + "$" + """airline<[^/]+>/reset""", """controllers.HomeController.postReset(airline:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """local-hello/""" + "$" + """name<[^/]+>""", """controllers.HomeController.sayHello(name:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """operators""", """controllers.HomeController.getOperators()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """operators/""" + "$" + """operator<[^/]+>/flights""", """controllers.HomeController.getOperatorFlights(operator:String)"""),
@@ -129,10 +132,64 @@ class Routes(
   )
 
   // @LINE:14
-  private[this] lazy val controllers_HomeController_sayHello4_route = Route("GET",
+  private[this] lazy val controllers_HomeController_postFail4_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("actor/"), DynamicPart("airline", """[^/]+""",true), StaticPart("/confirm_fail")))
+  )
+  private[this] lazy val controllers_HomeController_postFail4_invoker = createInvoker(
+    HomeController_0.postFail(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "postFail",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """actor/""" + "$" + """airline<[^/]+>/confirm_fail""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:16
+  private[this] lazy val controllers_HomeController_postNoResponse5_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("actor/"), DynamicPart("airline", """[^/]+""",true), StaticPart("/confirm_no_response")))
+  )
+  private[this] lazy val controllers_HomeController_postNoResponse5_invoker = createInvoker(
+    HomeController_0.postNoResponse(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "postNoResponse",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """actor/""" + "$" + """airline<[^/]+>/confirm_no_response""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:18
+  private[this] lazy val controllers_HomeController_postReset6_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("actor/"), DynamicPart("airline", """[^/]+""",true), StaticPart("/reset")))
+  )
+  private[this] lazy val controllers_HomeController_postReset6_invoker = createInvoker(
+    HomeController_0.postReset(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "postReset",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """actor/""" + "$" + """airline<[^/]+>/reset""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:20
+  private[this] lazy val controllers_HomeController_sayHello7_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("local-hello/"), DynamicPart("name", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HomeController_sayHello4_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_sayHello7_invoker = createInvoker(
     HomeController_0.sayHello(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -146,11 +203,11 @@ class Routes(
     )
   )
 
-  // @LINE:16
-  private[this] lazy val controllers_HomeController_getOperators5_route = Route("GET",
+  // @LINE:22
+  private[this] lazy val controllers_HomeController_getOperators8_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("operators")))
   )
-  private[this] lazy val controllers_HomeController_getOperators5_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_getOperators8_invoker = createInvoker(
     HomeController_0.getOperators(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -164,11 +221,11 @@ class Routes(
     )
   )
 
-  // @LINE:18
-  private[this] lazy val controllers_HomeController_getOperatorFlights6_route = Route("GET",
+  // @LINE:24
+  private[this] lazy val controllers_HomeController_getOperatorFlights9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("operators/"), DynamicPart("operator", """[^/]+""",true), StaticPart("/flights")))
   )
-  private[this] lazy val controllers_HomeController_getOperatorFlights6_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_getOperatorFlights9_invoker = createInvoker(
     HomeController_0.getOperatorFlights(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -182,11 +239,11 @@ class Routes(
     )
   )
 
-  // @LINE:20
-  private[this] lazy val controllers_HomeController_getOperatorFlightDetails7_route = Route("GET",
+  // @LINE:26
+  private[this] lazy val controllers_HomeController_getOperatorFlightDetails10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("operators/"), DynamicPart("operator", """[^/]+""",true), StaticPart("/flights/"), DynamicPart("flight", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HomeController_getOperatorFlightDetails7_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_getOperatorFlightDetails10_invoker = createInvoker(
     HomeController_0.getOperatorFlightDetails(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -200,11 +257,11 @@ class Routes(
     )
   )
 
-  // @LINE:23
-  private[this] lazy val controllers_Assets_versioned8_route = Route("GET",
+  // @LINE:29
+  private[this] lazy val controllers_Assets_versioned11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned8_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned11_invoker = createInvoker(
     Assets_1.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -246,33 +303,51 @@ class Routes(
       }
   
     // @LINE:14
-    case controllers_HomeController_sayHello4_route(params) =>
-      call(params.fromPath[String]("name", None)) { (name) =>
-        controllers_HomeController_sayHello4_invoker.call(HomeController_0.sayHello(name))
+    case controllers_HomeController_postFail4_route(params) =>
+      call(params.fromPath[String]("airline", None)) { (airline) =>
+        controllers_HomeController_postFail4_invoker.call(HomeController_0.postFail(airline))
       }
   
     // @LINE:16
-    case controllers_HomeController_getOperators5_route(params) =>
-      call { 
-        controllers_HomeController_getOperators5_invoker.call(HomeController_0.getOperators())
+    case controllers_HomeController_postNoResponse5_route(params) =>
+      call(params.fromPath[String]("airline", None)) { (airline) =>
+        controllers_HomeController_postNoResponse5_invoker.call(HomeController_0.postNoResponse(airline))
       }
   
     // @LINE:18
-    case controllers_HomeController_getOperatorFlights6_route(params) =>
-      call(params.fromPath[String]("operator", None)) { (operator) =>
-        controllers_HomeController_getOperatorFlights6_invoker.call(HomeController_0.getOperatorFlights(operator))
+    case controllers_HomeController_postReset6_route(params) =>
+      call(params.fromPath[String]("airline", None)) { (airline) =>
+        controllers_HomeController_postReset6_invoker.call(HomeController_0.postReset(airline))
       }
   
     // @LINE:20
-    case controllers_HomeController_getOperatorFlightDetails7_route(params) =>
-      call(params.fromPath[String]("operator", None), params.fromPath[String]("flight", None)) { (operator, flight) =>
-        controllers_HomeController_getOperatorFlightDetails7_invoker.call(HomeController_0.getOperatorFlightDetails(operator, flight))
+    case controllers_HomeController_sayHello7_route(params) =>
+      call(params.fromPath[String]("name", None)) { (name) =>
+        controllers_HomeController_sayHello7_invoker.call(HomeController_0.sayHello(name))
       }
   
-    // @LINE:23
-    case controllers_Assets_versioned8_route(params) =>
+    // @LINE:22
+    case controllers_HomeController_getOperators8_route(params) =>
+      call { 
+        controllers_HomeController_getOperators8_invoker.call(HomeController_0.getOperators())
+      }
+  
+    // @LINE:24
+    case controllers_HomeController_getOperatorFlights9_route(params) =>
+      call(params.fromPath[String]("operator", None)) { (operator) =>
+        controllers_HomeController_getOperatorFlights9_invoker.call(HomeController_0.getOperatorFlights(operator))
+      }
+  
+    // @LINE:26
+    case controllers_HomeController_getOperatorFlightDetails10_route(params) =>
+      call(params.fromPath[String]("operator", None), params.fromPath[String]("flight", None)) { (operator, flight) =>
+        controllers_HomeController_getOperatorFlightDetails10_invoker.call(HomeController_0.getOperatorFlightDetails(operator, flight))
+      }
+  
+    // @LINE:29
+    case controllers_Assets_versioned11_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned8_invoker.call(Assets_1.versioned(path, file))
+        controllers_Assets_versioned11_invoker.call(Assets_1.versioned(path, file))
       }
   }
 }
