@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -13,23 +12,23 @@ import akka.actor.AbstractActor;
 import akka.actor.Props;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
-import ch.qos.logback.core.net.SyslogOutputStream;
 import play.libs.Json;
-import java.util.Objects;
 
-public class AAActor extends AbstractActor{
+public class BAActor extends AbstractActor{
 
+	private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
+	
 	 public static Props getProps() {
-	        return Props.create(AAActor.class);
+	        return Props.create(BAActor.class);
 	    }
 	@Override
 	public Receive createReceive() {
 		      return receiveBuilder()
 		        .match(FlightMessage.class, message -> {
 		        	String action = message.getMessage().get("action").asText();
-		        	System.out.println("in AA" + sender());
 		        	int res = -999;
 		        	String sqlStatmt = "" ;
+		        	log.info("Received String message: {}");
 		        	PreparedStatement pstmt = null;
 		        	if(action.equals("availableSeats")){
 		        		sqlStatmt = "Select Available from Flights where Name = ?";
@@ -56,8 +55,7 @@ public class AAActor extends AbstractActor{
 		        	}
 		            
 		            sender().tell(reply, self());
-		        })
-		        .build();
+		        }).build();
 		  }
 	public static Connection connect() {
         Connection conn = null;

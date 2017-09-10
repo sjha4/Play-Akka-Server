@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/samir/Desktop/3rd sem/SOC/P2/airline/conf/routes
-// @DATE:Sat Sep 09 03:35:36 EDT 2017
+// @DATE:Sat Sep 09 22:23:03 EDT 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,7 +20,17 @@ package controllers.javascript {
     }
 
   
-    // @LINE:10
+    // @LINE:16
+    def getOperators: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.getOperators",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "operators"})
+        }
+      """
+    )
+  
+    // @LINE:14
     def sayHello: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.sayHello",
       """
@@ -30,12 +40,42 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:8
-    def getFlight: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.getFlight",
+    // @LINE:20
+    def getOperatorFlightDetails: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.getOperatorFlightDetails",
       """
         function(operator0,flight1) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "operators/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("operator", operator0)) + "/flights/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("flight", flight1))})
+        }
+      """
+    )
+  
+    // @LINE:18
+    def getOperatorFlights: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.getOperatorFlights",
+      """
+        function(operator0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "operators/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("operator", operator0)) + "/flights"})
+        }
+      """
+    )
+  
+    // @LINE:12
+    def postTrips: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.postTrips",
+      """
+        function(from0,to1) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "trip/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("from", from0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("to", to1))})
+        }
+      """
+    )
+  
+    // @LINE:8
+    def getTrips: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.getTrips",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "trips"})
         }
       """
     )
@@ -50,9 +90,19 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:10
+    def getTripDetails: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.getTripDetails",
+      """
+        function(tripID0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "trips/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("tripID", tripID0))})
+        }
+      """
+    )
+  
   }
 
-  // @LINE:13
+  // @LINE:23
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -60,7 +110,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:13
+    // @LINE:23
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

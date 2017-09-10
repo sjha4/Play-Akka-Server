@@ -25,17 +25,22 @@ public class HomeController extends Controller {
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
-	final ActorRef helloActor;
+	final ActorRef AActor,BActor,CActor,BookActor;
 
     @Inject 
     public HomeController(ActorSystem system) {
-        helloActor = system.actorOf(AAActor.getProps());
+    	AActor = system.actorOf(AAActor.getProps());
+    	BActor = system.actorOf(BAActor.getProps());
+    	CActor = system.actorOf(CAActor.getProps());
+    	BookActor = system.actorOf(BookingActor.getProps(AActor,BActor,CActor));
+    	
+        
     }
     
     public CompletionStage<Result> sayHello(String msg) {
     	ObjectNode message = Json.newObject();
     	message.put("firstname", msg);
-        return FutureConverters.toJava(ask(helloActor, new FlightMessage(message), 1000))
+        return FutureConverters.toJava(ask(AActor, new FlightMessage(message), 1000))
                 .thenApply(response -> ok((String) response));
     }
     public Result index() {
@@ -45,5 +50,76 @@ public class HomeController extends Controller {
     public Result getFlight(String operator, String flight){
     	return ok("operator: " + operator + ", flight: " + flight);
     	}
-
+    
+    public Result getOperators(){
+    	return ok("Operators: " + "AA, BA, CA");
+    	}
+    
+    public Result getOperatorFlights(String operator) {
+    	String flights;
+    	if(operator.equals("AA"))
+    		flights = "AA001, AA002";
+    	else if(operator.equals("BA"))
+    		flights = "BA001";
+    	else if(operator.equals("CA"))
+    		flights = "CA001, CA002";
+    	else return notFound("No such Operator found!");    	
+    	return ok("operator: " + operator + ", flight: " + flights);
+    	
+    }
+    
+    public CompletionStage<Result> getOperatorFlightDetails(String operator, String flight){
+    	ObjectNode message = Json.newObject();
+    	message.put("action","availableSeats");
+    	message.put("flight", flight);
+    	ActorRef op = null;
+    	if(operator.equals("AA"))
+    		op = AActor;
+    	else if(operator.equals("BA"))
+    		op = BActor;
+    	else if(operator.equals("CA"))
+    		op = CActor;
+    	//else return (CompletionStage<Result>) notFound("No such Operator found!");  
+        return FutureConverters.toJava(ask(op, new FlightMessage(message), 1000))
+                .thenApply(response -> resp((String) response));
+    }
+    
+    public CompletionStage<Result> getTrips(){
+    	ActorRef op = null;
+    	ObjectNode message = Json.newObject();
+    	message.put("action","get");
+    	op = BookActor;
+    	return FutureConverters.toJava(ask(op, new BookingMessage(message), 10000))
+                .thenApply(response -> resp((String) response));
+    	
+    }
+    
+    public CompletionStage<Result> postTrips(String from, String to){
+    	ActorRef op = null;
+    	ObjectNode message = Json.newObject();
+    	message.put("action","availableSeats");
+    	message.put("flight", "AA001");
+    	op = BookActor;
+    	return FutureConverters.toJava(ask(op, new TwoStageCommit(message), 10000))
+                .thenApply(response -> resp((String) response));
+    	
+    }
+    
+    public CompletionStage<Result> getTripDetails(String TripId){
+    	ActorRef op = null;
+    	ObjectNode message = Json.newObject();
+    	message.put("action","getDetails");
+    	message.put("TripId",TripId);
+    	op = BookActor;
+    	return FutureConverters.toJava(ask(op, new BookingMessage(message), 10000))
+                .thenApply(response -> resp((String) response));
+    	
+    }
+    
+    static Result resp(String resp){
+    	if(resp.contains("Error"))
+    	return notFound(resp);
+    	else return ok(resp); 
+    	
+    }
 }

@@ -2,17 +2,14 @@ package actors;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class FlightMessage {
+public class BookingMessage {
 	private ObjectNode message;
 	
-	public FlightMessage()
+	public BookingMessage()
     {
     }
 	
-	public FlightMessage(TwoStageCommit ts){
-		this.message = ts.getMessage();
-	}
-	 public FlightMessage( ObjectNode message )
+	 public BookingMessage( ObjectNode message )
      {
           this.message = message;
      }

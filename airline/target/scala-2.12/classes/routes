@@ -5,9 +5,19 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 
-GET /operators/:operator/flights/:flight controllers.HomeController.getFlight(operator: String, flight: String)
+GET /trips     controllers.HomeController.getTrips()
+
+GET /trips/:tripID	controllers.HomeController.getTripDetails(tripID)
+
+POST /trip/:from/:to controllers.HomeController.postTrips(from : String, to : String)
 
  GET      /local-hello/:name                controllers.HomeController.sayHello( name : String )
+ 
+ GET /operators		controllers.HomeController.getOperators()
+ 
+ GET /operators/:operator/flights	controllers.HomeController.getOperatorFlights(operator : String)
+ 
+ GET /operators/:operator/flights/:flight 	controllers.HomeController.getOperatorFlightDetails(operator : String, flight : String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
