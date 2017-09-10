@@ -97,8 +97,8 @@ public class HomeController extends Controller {
     public CompletionStage<Result> postTrips(String from, String to){
     	ActorRef op = null;
     	ObjectNode message = Json.newObject();
-    	message.put("action","availableSeats");
-    	message.put("flight", "AA001");
+    	message.put("action","Hold");
+    	//message.put("flight", "AA001");
     	op = BookActor;
     	return FutureConverters.toJava(ask(op, new TwoStageCommit(message), 10000))
                 .thenApply(response -> resp((String) response));

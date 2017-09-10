@@ -1,17 +1,37 @@
-2017-09-09 22:55:02,402 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
-2017-09-09 22:55:02,652 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] connected at jdbc:sqlite:mydb.db
-2017-09-09 22:55:03,528 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2017-09-10 01:58:40,930 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2017-09-10 01:58:41,155 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 01:58:42,080 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2017-09-09 22:55:03,650 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev)
-2017-09-09 22:55:56,431 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-8 - 
+2017-09-10 01:58:42,159 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-2 - Application started (Dev)
+2017-09-10 02:01:33,805 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-9 - Shutting down connection pool.
+2017-09-10 02:01:33,970 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
+2017-09-10 02:01:33,972 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-9 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 02:01:34,123 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-9 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
-! @759nm4nlh - Internal server error, for (POST) [/trip/X/Y] ->
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2017-09-10 02:01:34,136 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-9 - Application started (Dev)
+2017-09-10 02:04:43,387 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Shutting down connection pool.
+2017-09-10 02:04:43,536 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2017-09-10 02:04:43,537 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 02:04:43,698 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2017-09-10 02:04:43,715 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev)
+2017-09-10 02:09:05,450 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-15 - 
+
+! @759ole776 - Internal server error, for (POST) [/trip/X/Y] ->
  
-play.sbt.PlayExceptions$CompilationException: Compilation error[ error: 'void' type not allowed here]
+play.sbt.PlayExceptions$CompilationException: Compilation error[ error: ';' expected]
 	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
 	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
 	at scala.Option.map(Option.scala:145)
@@ -59,11 +79,41 @@ play.sbt.PlayExceptions$CompilationException: Compilation error[ error: 'void' t
 	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-2017-09-09 22:56:34,822 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-2 - 
+2017-09-10 02:09:33,198 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-18 - Shutting down connection pool.
+2017-09-10 02:09:33,344 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-18 - Creating Pool for datasource 'default'
+2017-09-10 02:09:33,346 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-18 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 02:09:33,465 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-18 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
-! @759nm72g5 - Internal server error, for (POST) [/trip/X/Y] ->
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2017-09-10 02:09:33,475 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-18 - Application started (Dev)
+2017-09-10 02:12:15,540 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-17 - Shutting down connection pool.
+2017-09-10 02:12:15,715 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-17 - Creating Pool for datasource 'default'
+2017-09-10 02:12:15,719 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-17 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 02:12:15,847 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-17 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2017-09-10 02:12:15,854 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-17 - Application started (Dev)
+2017-09-10 02:14:06,685 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-31 - Shutting down connection pool.
+2017-09-10 02:14:06,841 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-31 - Creating Pool for datasource 'default'
+2017-09-10 02:14:06,846 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-31 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 02:14:06,971 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-31 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2017-09-10 02:14:06,982 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-31 - Application started (Dev)
+2017-09-10 02:17:11,998 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-22 - 
+
+! @759omfp2f - Internal server error, for (POST) [/trip/X/Y] ->
  
-play.sbt.PlayExceptions$CompilationException: Compilation error[ error: 'void' type not allowed here]
+play.sbt.PlayExceptions$CompilationException: Compilation error[ error: cannot find symbol]
 	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
 	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
 	at scala.Option.map(Option.scala:145)
@@ -111,291 +161,55 @@ play.sbt.PlayExceptions$CompilationException: Compilation error[ error: 'void' t
 	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-2017-09-09 22:58:09,772 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-11 - 
-
-! @759nmcd24 - Internal server error, for (POST) [/trip/X/Y] ->
- 
-play.sbt.PlayExceptions$CompilationException: Compilation error[ error: 'void' type not allowed here]
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
-	at scala.Option.map(Option.scala:145)
-	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
-	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
-	at scala.Option.map(Option.scala:145)
-	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
-	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
-	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
-	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
-	at scala.util.Either$LeftProjection.map(Either.scala:377)
-	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
-	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
-	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
-	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
-	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
-	at play.runsupport.Reloader.reload(Reloader.scala:411)
-	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:123)
-	at play.core.server.Server.getHandlerFor(Server.scala:63)
-	at play.core.server.Server.getHandlerFor$(Server.scala:48)
-	at play.core.server.AkkaHttpServer.getHandlerFor(AkkaHttpServer.scala:41)
-	at play.core.server.AkkaHttpServer.getHandler(AkkaHttpServer.scala:214)
-	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:194)
-	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$3(AkkaHttpServer.scala:106)
-	at akka.stream.impl.fusing.MapAsync$$anon$23.onPush(Ops.scala:1172)
-	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:499)
-	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:462)
-	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:368)
-	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:571)
-	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:457)
-	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:546)
-	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:725)
-	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:740)
-	at akka.actor.Actor.aroundReceive(Actor.scala:514)
-	at akka.actor.Actor.aroundReceive$(Actor.scala:512)
-	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:650)
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)
-	at akka.actor.ActorCell.invoke(ActorCell.scala:496)
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)
-	at akka.dispatch.Mailbox.run(Mailbox.scala:224)
-	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-2017-09-09 22:59:00,561 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-11 - Shutting down connection pool.
-2017-09-09 22:59:00,726 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-11 - Creating Pool for datasource 'default'
-2017-09-09 22:59:00,728 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-11 - Database [default] connected at jdbc:sqlite:mydb.db
-2017-09-09 22:59:00,903 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-11 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2017-09-10 02:17:31,773 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-39 - Shutting down connection pool.
+2017-09-10 02:17:31,879 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-39 - Creating Pool for datasource 'default'
+2017-09-10 02:17:31,882 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-39 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 02:17:31,994 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-39 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2017-09-09 22:59:00,916 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-11 - Application started (Dev)
-2017-09-09 22:59:10,965 [ERROR] from application in application-scheduler-1 - 
-
-! @759nmfpfj - Internal server error, for (POST) [/trip/X/Y] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://application/user/$d#-751584129]] after [10000 ms]. Sender[null] sent message of type "actors.TwoStageCommit".]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:255)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:182)
-	at play.core.server.AkkaHttpServer$$anonfun$$nestedInanonfun$executeHandler$1$1.applyOrElse(AkkaHttpServer.scala:251)
-	at play.core.server.AkkaHttpServer$$anonfun$$nestedInanonfun$executeHandler$1$1.applyOrElse(AkkaHttpServer.scala:250)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:412)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at play.api.libs.streams.Execution$trampoline$.executeScheduled(Execution.scala:109)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:71)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:284)
-	at scala.concurrent.Promise.complete(Promise.scala:49)
-	at scala.concurrent.Promise.complete$(Promise.scala:48)
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:183)
-	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:94)
-	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:89)
-	at java.util.concurrent.CompletableFuture.uniWhenComplete(Unknown Source)
-	at java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(Unknown Source)
-	at java.util.concurrent.CompletableFuture.postComplete(Unknown Source)
-	at java.util.concurrent.CompletableFuture.completeExceptionally(Unknown Source)
-	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:21)
-	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:18)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at scala.concurrent.BatchingExecutor$Batch.processBatch$1(BatchingExecutor.scala:63)
-	at scala.concurrent.BatchingExecutor$Batch.$anonfun$run$1(BatchingExecutor.scala:78)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
-	at scala.concurrent.BatchingExecutor$Batch.run(BatchingExecutor.scala:55)
-	at scala.concurrent.Future$InternalCallbackExecutor$.unbatchedExecute(Future.scala:864)
-	at scala.concurrent.BatchingExecutor.execute(BatchingExecutor.scala:106)
-	at scala.concurrent.BatchingExecutor.execute$(BatchingExecutor.scala:103)
-	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:862)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:284)
-	at akka.pattern.PromiseActorRef$.$anonfun$apply$1(AskSupport.scala:601)
-	at akka.actor.Scheduler$$anon$4.run(Scheduler.scala:140)
-	at scala.concurrent.Future$InternalCallbackExecutor$.unbatchedExecute(Future.scala:864)
-	at scala.concurrent.BatchingExecutor.execute(BatchingExecutor.scala:109)
-	at scala.concurrent.BatchingExecutor.execute$(BatchingExecutor.scala:103)
-	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:862)
-	at akka.actor.LightArrayRevolverScheduler$TaskHolder.executeTask(LightArrayRevolverScheduler.scala:328)
-	at akka.actor.LightArrayRevolverScheduler$$anon$4.executeBucket$1(LightArrayRevolverScheduler.scala:279)
-	at akka.actor.LightArrayRevolverScheduler$$anon$4.nextTick(LightArrayRevolverScheduler.scala:283)
-	at akka.actor.LightArrayRevolverScheduler$$anon$4.run(LightArrayRevolverScheduler.scala:235)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.util.concurrent.CompletionException: akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://application/user/$d#-751584129]] after [10000 ms]. Sender[null] sent message of type "actors.TwoStageCommit".
-	at java.util.concurrent.CompletableFuture.encodeThrowable(Unknown Source)
-	at java.util.concurrent.CompletableFuture.completeThrowable(Unknown Source)
-	at java.util.concurrent.CompletableFuture.uniApply(Unknown Source)
-	at java.util.concurrent.CompletableFuture$UniApply.tryFire(Unknown Source)
-	... 29 common frames omitted
-Caused by: akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://application/user/$d#-751584129]] after [10000 ms]. Sender[null] sent message of type "actors.TwoStageCommit".
-	... 11 common frames omitted
-2017-09-09 23:00:20,215 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-13 - Shutting down connection pool.
-2017-09-09 23:00:20,391 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-13 - Creating Pool for datasource 'default'
-2017-09-09 23:00:20,393 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-13 - Database [default] connected at jdbc:sqlite:mydb.db
-2017-09-09 23:00:20,572 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-13 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2017-09-10 02:17:32,002 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-39 - Application started (Dev)
+2017-09-10 02:28:27,242 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-38 - Shutting down connection pool.
+2017-09-10 02:28:27,381 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-38 - Creating Pool for datasource 'default'
+2017-09-10 02:28:27,386 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-38 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 02:28:27,513 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-38 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2017-09-09 23:00:20,582 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-13 - Application started (Dev)
-2017-09-09 23:00:30,611 [ERROR] from application in application-scheduler-1 - 
-
-! @759nmkdb1 - Internal server error, for (POST) [/trip/X/Y] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://application/user/$d#373168039]] after [10000 ms]. Sender[null] sent message of type "actors.TwoStageCommit".]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:255)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:182)
-	at play.core.server.AkkaHttpServer$$anonfun$$nestedInanonfun$executeHandler$1$1.applyOrElse(AkkaHttpServer.scala:251)
-	at play.core.server.AkkaHttpServer$$anonfun$$nestedInanonfun$executeHandler$1$1.applyOrElse(AkkaHttpServer.scala:250)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:412)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at play.api.libs.streams.Execution$trampoline$.executeScheduled(Execution.scala:109)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:71)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:284)
-	at scala.concurrent.Promise.complete(Promise.scala:49)
-	at scala.concurrent.Promise.complete$(Promise.scala:48)
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:183)
-	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:94)
-	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:89)
-	at java.util.concurrent.CompletableFuture.uniWhenComplete(Unknown Source)
-	at java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(Unknown Source)
-	at java.util.concurrent.CompletableFuture.postComplete(Unknown Source)
-	at java.util.concurrent.CompletableFuture.completeExceptionally(Unknown Source)
-	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:21)
-	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:18)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at scala.concurrent.BatchingExecutor$Batch.processBatch$1(BatchingExecutor.scala:63)
-	at scala.concurrent.BatchingExecutor$Batch.$anonfun$run$1(BatchingExecutor.scala:78)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
-	at scala.concurrent.BatchingExecutor$Batch.run(BatchingExecutor.scala:55)
-	at scala.concurrent.Future$InternalCallbackExecutor$.unbatchedExecute(Future.scala:864)
-	at scala.concurrent.BatchingExecutor.execute(BatchingExecutor.scala:106)
-	at scala.concurrent.BatchingExecutor.execute$(BatchingExecutor.scala:103)
-	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:862)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:284)
-	at akka.pattern.PromiseActorRef$.$anonfun$apply$1(AskSupport.scala:601)
-	at akka.actor.Scheduler$$anon$4.run(Scheduler.scala:140)
-	at scala.concurrent.Future$InternalCallbackExecutor$.unbatchedExecute(Future.scala:864)
-	at scala.concurrent.BatchingExecutor.execute(BatchingExecutor.scala:109)
-	at scala.concurrent.BatchingExecutor.execute$(BatchingExecutor.scala:103)
-	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:862)
-	at akka.actor.LightArrayRevolverScheduler$TaskHolder.executeTask(LightArrayRevolverScheduler.scala:328)
-	at akka.actor.LightArrayRevolverScheduler$$anon$4.executeBucket$1(LightArrayRevolverScheduler.scala:279)
-	at akka.actor.LightArrayRevolverScheduler$$anon$4.nextTick(LightArrayRevolverScheduler.scala:283)
-	at akka.actor.LightArrayRevolverScheduler$$anon$4.run(LightArrayRevolverScheduler.scala:235)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.util.concurrent.CompletionException: akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://application/user/$d#373168039]] after [10000 ms]. Sender[null] sent message of type "actors.TwoStageCommit".
-	at java.util.concurrent.CompletableFuture.encodeThrowable(Unknown Source)
-	at java.util.concurrent.CompletableFuture.completeThrowable(Unknown Source)
-	at java.util.concurrent.CompletableFuture.uniApply(Unknown Source)
-	at java.util.concurrent.CompletableFuture$UniApply.tryFire(Unknown Source)
-	... 29 common frames omitted
-Caused by: akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://application/user/$d#373168039]] after [10000 ms]. Sender[null] sent message of type "actors.TwoStageCommit".
-	... 11 common frames omitted
-2017-09-09 23:00:56,391 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-19 - Shutting down connection pool.
-2017-09-09 23:00:56,573 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-19 - Creating Pool for datasource 'default'
-2017-09-09 23:00:56,577 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-19 - Database [default] connected at jdbc:sqlite:mydb.db
-2017-09-09 23:00:56,704 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-19 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2017-09-10 02:28:27,519 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-38 - Application started (Dev)
+2017-09-10 02:28:27,699 [ERROR] from actors.BookingActor in application-akka.actor.default-dispatcher-4 - Message class: class actors.BookingMessage
+2017-09-10 02:29:05,529 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-52 - Shutting down connection pool.
+2017-09-10 02:29:05,624 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-52 - Creating Pool for datasource 'default'
+2017-09-10 02:29:05,628 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-52 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 02:29:05,733 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-52 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2017-09-09 23:00:56,712 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-19 - Application started (Dev)
-2017-09-09 23:01:06,745 [ERROR] from application in application-scheduler-1 - 
-
-! @759nmmemm - Internal server error, for (POST) [/trip/X/Y] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://application/user/$d#-448457056]] after [10000 ms]. Sender[null] sent message of type "actors.TwoStageCommit".]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:255)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:182)
-	at play.core.server.AkkaHttpServer$$anonfun$$nestedInanonfun$executeHandler$1$1.applyOrElse(AkkaHttpServer.scala:251)
-	at play.core.server.AkkaHttpServer$$anonfun$$nestedInanonfun$executeHandler$1$1.applyOrElse(AkkaHttpServer.scala:250)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:412)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at play.api.libs.streams.Execution$trampoline$.executeScheduled(Execution.scala:109)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:71)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:284)
-	at scala.concurrent.Promise.complete(Promise.scala:49)
-	at scala.concurrent.Promise.complete$(Promise.scala:48)
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:183)
-	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:94)
-	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:89)
-	at java.util.concurrent.CompletableFuture.uniWhenComplete(Unknown Source)
-	at java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(Unknown Source)
-	at java.util.concurrent.CompletableFuture.postComplete(Unknown Source)
-	at java.util.concurrent.CompletableFuture.completeExceptionally(Unknown Source)
-	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:21)
-	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:18)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at scala.concurrent.BatchingExecutor$Batch.processBatch$1(BatchingExecutor.scala:63)
-	at scala.concurrent.BatchingExecutor$Batch.$anonfun$run$1(BatchingExecutor.scala:78)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
-	at scala.concurrent.BatchingExecutor$Batch.run(BatchingExecutor.scala:55)
-	at scala.concurrent.Future$InternalCallbackExecutor$.unbatchedExecute(Future.scala:864)
-	at scala.concurrent.BatchingExecutor.execute(BatchingExecutor.scala:106)
-	at scala.concurrent.BatchingExecutor.execute$(BatchingExecutor.scala:103)
-	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:862)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:284)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:284)
-	at akka.pattern.PromiseActorRef$.$anonfun$apply$1(AskSupport.scala:601)
-	at akka.actor.Scheduler$$anon$4.run(Scheduler.scala:140)
-	at scala.concurrent.Future$InternalCallbackExecutor$.unbatchedExecute(Future.scala:864)
-	at scala.concurrent.BatchingExecutor.execute(BatchingExecutor.scala:109)
-	at scala.concurrent.BatchingExecutor.execute$(BatchingExecutor.scala:103)
-	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:862)
-	at akka.actor.LightArrayRevolverScheduler$TaskHolder.executeTask(LightArrayRevolverScheduler.scala:328)
-	at akka.actor.LightArrayRevolverScheduler$$anon$4.executeBucket$1(LightArrayRevolverScheduler.scala:279)
-	at akka.actor.LightArrayRevolverScheduler$$anon$4.nextTick(LightArrayRevolverScheduler.scala:283)
-	at akka.actor.LightArrayRevolverScheduler$$anon$4.run(LightArrayRevolverScheduler.scala:235)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.util.concurrent.CompletionException: akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://application/user/$d#-448457056]] after [10000 ms]. Sender[null] sent message of type "actors.TwoStageCommit".
-	at java.util.concurrent.CompletableFuture.encodeThrowable(Unknown Source)
-	at java.util.concurrent.CompletableFuture.completeThrowable(Unknown Source)
-	at java.util.concurrent.CompletableFuture.uniApply(Unknown Source)
-	at java.util.concurrent.CompletableFuture$UniApply.tryFire(Unknown Source)
-	... 29 common frames omitted
-Caused by: akka.pattern.AskTimeoutException: Ask timed out on [Actor[akka://application/user/$d#-448457056]] after [10000 ms]. Sender[null] sent message of type "actors.TwoStageCommit".
-	... 11 common frames omitted
-2017-09-09 23:01:54,649 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-19 - Shutting down connection pool.
-2017-09-09 23:01:54,798 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-19 - Creating Pool for datasource 'default'
-2017-09-09 23:01:54,800 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-19 - Database [default] connected at jdbc:sqlite:mydb.db
-2017-09-09 23:01:54,938 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-19 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2017-09-10 02:29:05,738 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-52 - Application started (Dev)
+2017-09-10 02:29:05,767 [ERROR] from actors.BookingActor in application-akka.actor.default-dispatcher-2 - Message class: class actors.BookingMessage
+2017-09-10 02:30:02,672 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-50 - Shutting down connection pool.
+2017-09-10 02:30:02,811 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-50 - Creating Pool for datasource 'default'
+2017-09-10 02:30:02,813 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-50 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 02:30:02,920 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-50 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2017-09-09 23:01:54,954 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-19 - Application started (Dev)
-2017-09-09 23:03:16,614 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-23 - Shutting down connection pool.
-2017-09-09 23:03:16,810 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-23 - Creating Pool for datasource 'default'
-2017-09-09 23:03:16,817 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-23 - Database [default] connected at jdbc:sqlite:mydb.db
-2017-09-09 23:03:16,974 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-23 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2017-09-10 02:30:02,930 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-50 - Application started (Dev)
+2017-09-10 02:30:19,085 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-58 - Shutting down connection pool.
+2017-09-10 02:30:19,191 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-58 - Creating Pool for datasource 'default'
+2017-09-10 02:30:19,192 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-58 - Database [default] connected at jdbc:sqlite:mydb.db
+2017-09-10 02:30:19,294 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-58 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2017-09-09 23:03:16,983 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-23 - Application started (Dev)
+2017-09-10 02:30:19,303 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-58 - Application started (Dev)
